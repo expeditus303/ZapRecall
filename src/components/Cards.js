@@ -7,7 +7,7 @@ import lembrou from "../assets/img/icone_certo.png"
 
 export default function Cards(props) {
 
-    const { pergunta, resposta, numeroCard } = props
+    const { pergunta, resposta, numeroCard, cardFeito } = props
 
     const [inicio, setInicio] = useState(true)
     const [perguntaAberta, setPerguntaAberta] = useState(false)
@@ -33,6 +33,7 @@ export default function Cards(props) {
         setPerguntaAberta(false)
         setRespostaAberta(false)
         setNaoLembra(true)
+        cardFeito()
     }
 
     function quaseNaoLembrei() {
@@ -41,6 +42,7 @@ export default function Cards(props) {
         setPerguntaAberta(false)
         setRespostaAberta(false)
         setQuaseNaoLembra(true)
+        cardFeito()
     }
 
     function lembrei() {
@@ -49,6 +51,7 @@ export default function Cards(props) {
         setPerguntaAberta(false)
         setRespostaAberta(false)
         setLembra(true)
+        cardFeito()
     }
 
 

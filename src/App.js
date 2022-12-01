@@ -10,7 +10,7 @@ function App() {
   const [cardsFeitos, setCardsFeitos] = useState(0)
 
   function cardFeito() {
-    setCardsFeitos(cardFeito + 1)
+    setCardsFeitos(cardsFeitos + 1)
   }
 
 
@@ -24,6 +24,7 @@ function App() {
           pergunta={c.question}
           resposta={c.answer}
           numeroCard={cards.indexOf(c) + 1}
+          cardFeito={cardFeito} 
         />
       ))}
 
