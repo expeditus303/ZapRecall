@@ -1,32 +1,34 @@
 import { useState } from "react";
 import Logo from "./components/Logo";
 import PerguntaAberta from "./components/PerguntaAberta";
-import PerguntaFechada from "./components/PerguntaFechada";
+import Cards from "./components/Cards";
+import Footer from "./Footer";
+import cards from "./cards"
 
 function App() {
 
   const [inicio, setInicio] = useState(true)
   const [perguntaAberta, setPerguntaAberta] = useState(false)
   const [respostaAberta, setRespostaAberta] = useState(false)
+  const [cardsFeitos, setCardsFeitos] = useState(0)
 
-  function abrirPergunta() {  
-    setInicio(false)
-    setPerguntaAberta(true)
-  }
-
-  function abrirResposta() {
-    setPerguntaAberta(false)
-    setRespostaAberta(true)
-  }
 
   return (
     <div className="screen-container">
       <Logo />
 
-      <PerguntaFechada abrirPergunta={abrirPergunta} perguntaAberta={perguntaAberta} abrirResposta={abrirResposta} respostaAberta={respostaAberta} inicio={inicio} />
+      {cards.map((c) => (
+        <Cards
+          key={c.question}
+          perguntaAberta={perguntaAberta}
+          respostaAberta={respostaAberta}
+          inicio={inicio}
+          pergunta={c.question}
+          resposta={c.answer}
+        />
+      ))}
 
-      <div className="footer-concluidos"> 10
-      </div>
+      <Footer cardsFeitos={cardsFeitos} totalCards={cards.length} />
     </div >
   );
 }
