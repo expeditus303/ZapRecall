@@ -136,3 +136,18 @@
 .escondido {
   display: none;
 }
+
+.pergunta-fechada > p.naoLembra {
+  color: #FF3030;
+  text-decoration: line-through;
+}
+
+.pergunta-fechada > p.quaseNaoLembra {
+  color: #FF922E;
+  text-decoration: line-through;
+}
+
+.pergunta-fechada > p.lembra {
+  color: #2FBE34;
+  text-decoration: line-through;
+}

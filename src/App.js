@@ -7,10 +7,11 @@ import cards from "./cards"
 
 function App() {
 
-  const [inicio, setInicio] = useState(true)
-  const [perguntaAberta, setPerguntaAberta] = useState(false)
-  const [respostaAberta, setRespostaAberta] = useState(false)
   const [cardsFeitos, setCardsFeitos] = useState(0)
+
+  function cardFeito() {
+    setCardsFeitos(cardFeito + 1)
+  }
 
 
   return (
@@ -20,11 +21,9 @@ function App() {
       {cards.map((c) => (
         <Cards
           key={c.question}
-          perguntaAberta={perguntaAberta}
-          respostaAberta={respostaAberta}
-          inicio={inicio}
           pergunta={c.question}
           resposta={c.answer}
+          numeroCard={cards.indexOf(c) + 1}
         />
       ))}
 
