@@ -72,10 +72,10 @@ export default function Cards(props) {
           Pergunta {numeroCard}
         </ParagrafoRiscado>
         <img
-          data-test={`${play ? "play-btn" : ""} ${naoLembra ? "no-icon" : ""} ${quaseNaoLembra ? "partial-icon" : ""
-        } ${lembra ? "zap-icon" : ""}`}
+          data-test={`${play ? "play-btn" : ""}${naoLembra ? "no-icon" : ""}${quaseNaoLembra ? "partial-icon" : ""
+        }${lembra ? "zap-icon" : ""}`}
           onClick={riscado ? "" : abrirPergunta}
-          src={`${play ? played : ""} ${naoLembra ? naoLembrou : ""} ${quaseNaoLembra ? quaseNaoLembrou : ""
+          src={`${play ? played : ""}${naoLembra ? naoLembrou : ""}${quaseNaoLembra ? quaseNaoLembrou : ""
             } ${lembra ? lembrou : ""}`}
           alt="play button"
         />
@@ -93,7 +93,7 @@ export default function Cards(props) {
       <RespostaAbertaContainer respostaAberta={respostaAberta}>
         <p data-test="flashcard-text">{resposta}</p>
         <ContainerBotoes>
-          <button onClick={naoLembrei} data-test="no-btn">Não lembrei</button>
+          <button onClick={naoLembrei} data-test="no-btn"                                                                   >Não lembrei</button>
           <button onClick={quaseNaoLembrei} data-test="partial-btn">Quase não lembrei</button>
           <button onClick={lembrei}  data-test="zap-btn">Zap!</button>
         </ContainerBotoes>
