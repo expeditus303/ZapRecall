@@ -71,14 +71,15 @@ export default function Cards(props) {
         >
           Pergunta {numeroCard}
         </ParagrafoRiscado>
-        <img
-          data-test={`${play ? "play-btn" : ""}${naoLembra ? "no-icon" : ""}${quaseNaoLembra ? "partial-icon" : ""
-        }${lembra ? "zap-icon" : ""}`}
-          onClick={riscado ? "" : abrirPergunta}
-          src={`${play ? played : ""}${naoLembra ? naoLembrou : ""}${quaseNaoLembra ? quaseNaoLembrou : ""
-            } ${lembra ? lembrou : ""}`}
-          alt="play button"
-        />
+        <button data-test={`${play ? "play-btn" : ""}${naoLembra ? "no-icon" : ""}${quaseNaoLembra ? "partial-icon" : ""
+          }${lembra ? "zap-icon" : ""}`}
+            onClick={riscado ? "" : abrirPergunta}>
+          <img
+            src={`${play ? played : ""}${naoLembra ? naoLembrou : ""}${quaseNaoLembra ? quaseNaoLembrou : ""
+              } ${lembra ? lembrou : ""}`}
+            alt="play button"
+          />
+        </button>
       </PerguntaFechadaContainer>
 
       <PerguntaAbertaContainer perguntaAberta={perguntaAberta}>
@@ -113,6 +114,10 @@ const PerguntaFechadaContainer = styled.div`
   display: ${(props) => (props.inicio ? "flex" : "none")};
   align-items: center;
   justify-content: space-between;
+
+  button{
+    border: none;
+  }
 `;
 
 const ParagrafoRiscado = styled.p`
