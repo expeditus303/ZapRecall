@@ -167,7 +167,9 @@ const PerguntaAbertaContainer = styled.div`
   flex-direction: column;
   justify-content: space - between;
 
-  > img {
+  > button {
+    background: #ffffd5;
+    border: none;
     position: absolute;
     bottom: 10px;
     right: 10px;
