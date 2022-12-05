@@ -82,7 +82,7 @@ export default function Cards(props) {
         </button>
       </PerguntaFechadaContainer>
 
-      <PerguntaAbertaContainer perguntaAberta={perguntaAberta}>
+      <PerguntaAbertaContainer perguntaAberta={perguntaAberta} data-test="flashcard">
         <p data-test="flashcard-text">{pergunta}</p>
         <button 
             data-test="turn-btn"
@@ -94,7 +94,7 @@ export default function Cards(props) {
         </button>
       </PerguntaAbertaContainer>
 
-      <RespostaAbertaContainer respostaAberta={respostaAberta}>
+      <RespostaAbertaContainer respostaAberta={respostaAberta} data-test="flashcard">
         <p data-test="flashcard-text">{resposta}</p>
         <ContainerBotoes>
           <button onClick={naoLembrei} data-test="no-btn"                                                                   >Não lembrei</button>
