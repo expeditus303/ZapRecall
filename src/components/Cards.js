@@ -60,8 +60,9 @@ export default function Cards(props) {
 
   return (
     <>
-      <PerguntaFechadaContainer inicio={inicio}>
+      <PerguntaFechadaContainer inicio={inicio} data-test="flashcard">
         <ParagrafoRiscado
+          data-test="flashcard-text"
           inicio={inicio}
           naoLembra={naoLembra}
           quaseNaoLembra={quaseNaoLembra}
@@ -71,25 +72,30 @@ export default function Cards(props) {
           Pergunta {numeroCard}
         </ParagrafoRiscado>
         <img
-          onClick={abrirPergunta}
-          src={`${play ? played : ""} ${naoLembra ? naoLembrou : ""} ${
-            quaseNaoLembra ? quaseNaoLembrou : ""
-          } ${lembra ? lembrou : ""}`}
-          alt=""
+          data-test={`${play ? "play-btn" : ""} ${naoLembra ? "no-icon" : ""} ${quaseNaoLembra ? "partial-icon" : ""
+        } ${lembra ? "zap-icon" : ""}`}
+          onClick={riscado ? "" : abrirPergunta}
+          src={`${play ? played : ""} ${naoLembra ? naoLembrou : ""} ${quaseNaoLembra ? quaseNaoLembrou : ""
+            } ${lembra ? lembrou : ""}`}
+          alt="play button"
         />
       </PerguntaFechadaContainer>
 
       <PerguntaAbertaContainer perguntaAberta={perguntaAberta}>
-        <p>{pergunta}</p>
-        <img onClick={abrirResposta} src={virar} alt="" />
+        <p data-test="flashcard-text">{pergunta}</p>
+        <img
+          data-test="turn-btn"
+          onClick={abrirResposta}
+          src={virar} alt="turn to answer"
+        />
       </PerguntaAbertaContainer>
 
       <RespostaAbertaContainer respostaAberta={respostaAberta}>
-        <p>{resposta}</p>
+        <p data-test="flashcard-text">{resposta}</p>
         <ContainerBotoes>
-          <button onClick={naoLembrei}>Não lembrei</button>
-          <button onClick={quaseNaoLembrei}>Quase não lembrei</button>
-          <button onClick={lembrei}>Zap!</button>
+          <button onClick={naoLembrei} data-test="no-btn">Não lembrei</button>
+          <button onClick={quaseNaoLembrei} data-test="partial-btn">Quase não lembrei</button>
+          <button onClick={lembrei}  data-test="zap-btn">Zap!</button>
         </ContainerBotoes>
       </RespostaAbertaContainer>
     </>
