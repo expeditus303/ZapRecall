@@ -84,11 +84,14 @@ export default function Cards(props) {
 
       <PerguntaAbertaContainer perguntaAberta={perguntaAberta}>
         <p data-test="flashcard-text">{pergunta}</p>
-        <img
-          data-test="turn-btn"
-          onClick={abrirResposta}
-          src={virar} alt="turn to answer"
-        />
+        <button 
+            data-test="turn-btn"
+            onClick={abrirResposta}>
+          <img
+            
+            src={virar} alt="turn to answer"
+          />
+        </button>
       </PerguntaAbertaContainer>
 
       <RespostaAbertaContainer respostaAberta={respostaAberta}>
