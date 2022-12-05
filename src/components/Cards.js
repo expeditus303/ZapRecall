@@ -7,7 +7,7 @@ import lembrou from "../assets/img/icone_certo.png";
 import styled from "styled-components";
 
 export default function Cards(props) {
-  const { pergunta, resposta, numeroCard, cardFeito } = props;
+  const { pergunta, resposta, numeroCard, cardFeito, setCardsErrados, todosCardsFeitos, cardsErrados } = props;
 
   const [inicio, setInicio] = useState(true);
   const [perguntaAberta, setPerguntaAberta] = useState(false);
@@ -36,6 +36,9 @@ export default function Cards(props) {
     setNaoLembra(true);
     setRiscado(true);
     cardFeito();
+    let cardsA = cardsErrados + 1
+    setCardsErrados(cardsA)
+    todosCardsFeitos(cardsA)
   }
 
   function quaseNaoLembrei() {
@@ -46,6 +49,7 @@ export default function Cards(props) {
     setQuaseNaoLembra(true);
     setRiscado(true);
     cardFeito();
+    todosCardsFeitos()
   }
 
   function lembrei() {
@@ -56,6 +60,7 @@ export default function Cards(props) {
     setLembra(true);
     setRiscado(true);
     cardFeito();
+    todosCardsFeitos()
   }
 
   return (
@@ -73,7 +78,8 @@ export default function Cards(props) {
         </ParagrafoRiscado>
         <button data-test={`${play ? "play-btn" : ""}${naoLembra ? "no-icon" : ""}${quaseNaoLembra ? "partial-icon" : ""
           }${lembra ? "zap-icon" : ""}`}
-            onClick={riscado ? "" : abrirPergunta}>
+            onClick={abrirPergunta}
+            disabled={riscado ? true : false}>
           <img
             src={`${play ? played : ""}${naoLembra ? naoLembrou : ""}${quaseNaoLembra ? quaseNaoLembrou : ""
               } ${lembra ? lembrou : ""}`}

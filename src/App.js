@@ -12,12 +12,22 @@ function App() {
   // BREAK
 
   const [cardsFeitos, setCardsFeitos] = useState(0)
-  const [filaRespostas, setFilaRespostas] = useState([])
-  const [filaCerta, setFilaCerta] = useState(false)
-  const [filaTalvez, setFilaTalvez] = useState(false)
-  const [filaErrada, setFilaErrada] = useState(false)
+  const [cardsErrados, setCardsErrados] = useState(0)
+  const [esqueceuAlgo, setEsqueceuAlgo] = useState(false)
+  const [naoEsqueceuNada, setNaoEsqueceuNada] = useState(false)
 
 
+  function todosCardsFeitos(a) {
+    let cardsF = cardsFeitos + 1
+    if (cardsF === cards.length) {
+      if (a != undefined) {
+        setEsqueceuAlgo(true)
+      } else {
+        setNaoEsqueceuNada(true)
+      }
+    }
+
+  }
 
   function cardFeito() {
     setCardsFeitos(cardsFeitos + 1)
@@ -40,11 +50,14 @@ function App() {
           pergunta={c.question}
           resposta={c.answer}
           numeroCard={cards.indexOf(c) + 1}
-          cardFeito={cardFeito} 
+          cardFeito={cardFeito}
+          setCardsErrados={setCardsErrados}
+          todosCardsFeitos={todosCardsFeitos}
+          cardsErrados={cardsErrados}
         />
       ))}
 
-      <Footer cardsFeitos={cardsFeitos} totalCards={cards.length} />
+      <Footer cardsFeitos={cardsFeitos} totalCards={cards.length} naoEsqueceuNada={naoEsqueceuNada} esqueceuAlgo={esqueceuAlgo}/>
     </ScreenContainer >
   );
 }
