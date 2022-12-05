@@ -16,7 +16,7 @@ export default function BoasVindas() {
 
             <img src={logo} alt="" />
             <h1>ZapRecall</h1>
-            <p onClick={iniciarRecall}>Iniciar Recall!</p>
+            <p onClick={iniciarRecall} data-test="start-btn">Iniciar Recall!</p>
 
         </Boasvindas>
 

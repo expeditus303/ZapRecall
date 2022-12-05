@@ -9,17 +9,23 @@ import GlobalStyle from "./assets/styles/GlobalStyle";
 
 function App() {
 
+  // BREAK
+
   const [cardsFeitos, setCardsFeitos] = useState(0)
-  const [iniciarRecall, setInciarRecall] = useState(false)
+  const [filaRespostas, setFilaRespostas] = useState([])
+  const [filaCerta, setFilaCerta] = useState(false)
+  const [filaTalvez, setFilaTalvez] = useState(false)
+  const [filaErrada, setFilaErrada] = useState(false)
+
+
 
   function cardFeito() {
     setCardsFeitos(cardsFeitos + 1)
   }
 
-  function iniciar () {
-    return 
+  function filaResposta() {
+    filaResposta.push()
   }
-
 
   return (
     <ScreenContainer>
